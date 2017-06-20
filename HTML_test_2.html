@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Acme Widgets&nbsp; - Get Your Widgets Here!</title>
+</head>
+
+<body bgcolor="#FFFFCC">
+
+<h2>The Form Page Company</h2>
+<h3>Get Your Forms Here!</h3>
+<p>Please place your data in the following Order Form:</p>
+<p>&nbsp;</p>
+<p>If you have questions or difficulties with this order page, please contact
+    our Customer Service Department (see our Contacts page.)</p>
+
+<form method="post" name="Form" onsubmit="return validateForm()" action="">
+
+<fieldset class="Title">
+    <legend>Recipient's Information </legend>
+
+    <!--
+<div class="Title">
+    <h2>Recipient's Information</h2>
+    <p>Recipient's Information</p>
+</div>
+-->
+
+<p><b><label for="firstname">First Name<em>*</em></label>
+    <input name="firstname" id="firstname" type="text" required />
+    <span id="firstnameerr"></span></b></p>
+
+<p><b><label for="lastname">Last Name<em>*</em></label>
+    <input name="lastname" id="lastname" type="text">
+    <span id="lastnameerr"></span></b></p>
+
+<p><b><label for="telephone">Telephone<em>*</em></label>
+    <input name="telephone" id="telephone" type="text">
+    <span id="telephoneerr"></span></b></p>
+
+<p><b><label for="address">Address<em>*</em></label>
+    <input name="address" id="address" type="text">
+    <span id="addresserr"></span></b></p>
+
+<p><b><label for="zipcode">Zip Code<em>*</em></label>
+    <input name="zipcode" id="zipcode" type="text">
+    <span id="zipcodeerr"></span></b></p>
+
+<p><b><label for="email">E-Mail:</label>
+    <input name="email" id="email" type="text">
+    <span id="emailerr"></span></b></p>
+
+</fieldset>
+
+<fieldset class="Title2">
+    <legend>Payment</legend>
+
+    <!--<p><b><label for="city">City:</label>
+        <input name="city" id="city" type="text">
+        <span id="cityerr"></span></b></p>-->
+
+    <p><b><label for="city">City:</label>
+    <select  name="city" id="city" type="text">
+        <option value="Thessaloniki">Thessaloniki</option>
+        <option value="Athens">Athens</option>
+        <option value="Larissa">Larissa</option>
+        <option value="Patra">Patra</option>
+        <option value="Xanthi">Xanthi</option>
+        <option value="Giannena">Giannena</option>
+        <option value="Heraklion">Heraklion</option>
+        <option value="Piraeus">Piraeus</option>
+    </select> </b></p>
+
+    <b>Payment Option</b> <br/>
+    <input type="radio" name="payondelivery" value="HTML"><label for="payondelivery">Cash On Delivery</label><br/>
+    <input type="radio" name="paywithdeposit" value="CSS"><label for="paywithdeposit">Bank Deposit</label><br/>
+    <input type="radio" name="creditcard" value="JS"><label for="creditcard">Credit Card</label><br/>
+    </fieldset>
+<br/>
+<br/>
+
+<label for="deliverydirections"> Directions for Delivery: </label>
+<textarea id="deliverydirections" name="delivery_directions" rows="4" cols="25" placeholder="Write directions here ...">
+</textarea><br/><br/>
+
+<p>Ease to complete order</p>
+    <label for="order_difficulty" class="order_difficulty">Order Difficulty:</label>
+Difficult<input type="range" id="height" name="height" min="0" max="100" step="5"  value=50 onchange="showValue(this.value)">Easy<br>
+<span id="range">0</span>
+    <br/>
+    <br/>
+
+<script type="text/javascript">
+    function showValue(newValue)
+    {
+        document.getElementById("range").innerHTML=newValue;
+    }
+</script>
+
+<div> <input id="submit" type="submit" value="Place Order"/>
+    <input id="reset" type="reset" value="Clear Order"/>
+    <br/>
+</div>
+
+    <script type="text/javascript">
+        function validateForm()
+        {
+            var a=document.forms["Form"]["firstname"].value;
+            var b=document.forms["Form"]["lastname"].value;
+            var c=document.forms["Form"]["telephone"].value;
+            var d=document.forms["Form"]["address"].value;
+            var e=document.forms["Form"]["zipcode"].value;
+            var em=document.forms["Form"]["email"].value;
+
+            if (a==null  || a=="", b==null || b=="", c==null ||  c=="", d==null || d=="", e==null || e == "", em==null || em== "" )
+            {
+                alert("Please Fill All Required Field");
+                return false;
+            }
+
+            var atpos = em.indexOf("@");
+            var dotpos = em.lastIndexOf(".");
+            if ( atpos < 1 || dotpos < (atpos+2) || (dotpos+2) >= em.length ) {
+                alert("Not a valid e-mail address");
+                return false;
+            }
+
+        }
+    </script>
+
+</form>
+
+<style>
+    .Title {border:2px solid #0094ff;}
+    .Title h2 {background:#0094ff;color:white;padding:10px;}
+    .Title p {color:#333;padding:10px;}
+
+    label {
+        display: inline-block;
+        float: left;
+        width: 120px;
+        text-align: left;
+    }
+
+</style>
+
+</body>
+
+</html>
